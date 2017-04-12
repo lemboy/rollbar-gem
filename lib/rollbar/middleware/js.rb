@@ -46,7 +46,8 @@ module Rollbar
       end
 
       def html?(headers)
-        headers['Content-Type'] && headers['Content-Type'].include?('text/html')
+        headers['Content-Type'] && headers['Content-Type'].include?('text/html') &&
+          !headers['DISABLE-ROLLBAR-JS']
       end
 
       def attachment?(headers)
